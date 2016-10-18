@@ -42,11 +42,12 @@ class style(colorFore):
         self.italic    = '3'
         self.underline = '4'
         self.blink     = '5'
+        self.revert    = '7'
 
 class pyout:
     def __init__(self):
         self.s = style()
-        self.fmt = '\x1b[%sm%s\x1b[0m'
+        self.fmt = '\x1b[%sm%s%s\x1b[0m'
     '''例子pyout.example()'''
     def example(self):
         for style in range(8):
@@ -58,10 +59,17 @@ class pyout:
                 print(s1)
             print('\n')
     '''消息 格式'''
-    def log(self, m, s = '0'):
+    def log(self, m, s = '0', flag = ' '):
+        print()
         if isinstance(s, list):
             s = ';'.join(s)
-        print(self.fmt % (s, m))
+        if isinstance(m, list):
+            print(self.fmt % (self.s.revert, flag, '['))
+            for msg in m:
+                print(self.fmt % (s, flag, msg))
+            print(self.fmt % (self.s.revert, flag, ']'))
+        else:
+            print(self.fmt % (s, flag, m))
     def bright(self, m):
         self.log(m, self.s.bright)
     def italic(self, m):
@@ -69,13 +77,13 @@ class pyout:
     def underline(self, m):
         self.log(m, self.s.underline)
     def info(self, m):
-        self.log('ℹ️  %s' % m, self.s.blue)
+        self.log(m, self.s.blue, 'ℹ️  ')
     def warn(self, m):
-        self.log('⚠️  %s' % m, self.s.yellow)
+        self.log(m, self.s.yellow, '⚠️  ')
     def debug(self, m):
-        self.log('🌀  %s' % m, self.s.magenta)
+        self.log(m, self.s.magenta, '🌀  ')
     def error(self, m):
-        self.log('❌  %s' % m, self.s.red)
+        self.log(m, self.s.red, '❌  ')
     def success(self, m):
-        self.log('✅  %s' % m, self.s.green)
+        self.log(m, self.s.green, '✅  ')
 
