@@ -60,14 +60,13 @@ class pyout:
             print('\n')
     '''消息 格式'''
     def log(self, m, s = '0', flag = ' '):
-        print()
         if isinstance(s, list):
             s = ';'.join(s)
         if isinstance(m, list):
-            print(self.fmt % (self.s.revert, flag, '['))
+            print(self.fmt % (s, '', '['))
             for msg in m:
                 print(self.fmt % (s, flag, msg))
-            print(self.fmt % (self.s.revert, flag, ']'))
+            print(self.fmt % (s, '', ']'))
         else:
             print(self.fmt % (s, flag, m))
     def bright(self, m):
