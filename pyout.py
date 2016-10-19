@@ -10,7 +10,7 @@ from os import name
 背景色 40～48
 '''
 
-class colorFore:
+class ColorFore(object):
     black   = '30'
     red     = '31'
     green   = '32'
@@ -21,7 +21,7 @@ class colorFore:
     white   = '37'
     default = '38'
 
-class colorBack:
+class ColorBack(object):
     black   = '40'
     red     = '41'
     green   = '42'
@@ -32,10 +32,10 @@ class colorBack:
     white   = '47'
     default = '48'
 
-class style(colorFore):
+class Style(ColorFore):
     def __init__(self):
-        self.fg = colorFore()
-        self.bg = colorBack()
+        self.fg = ColorFore()
+        self.bg = ColorBack()
         self.reset     = '0'
         self.bright    = '1'
         self.dim       = '2'
@@ -44,9 +44,9 @@ class style(colorFore):
         self.blink     = '5'
         self.revert    = '7'
 
-class pyout:
+class Pyout(object):
     def __init__(self):
-        self.s = style()
+        self.s = Style()
         self.fmt = '\x1b[%sm%s%s\x1b[0m'
     '''例子pyout.example()'''
     def example(self):

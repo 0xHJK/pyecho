@@ -3,8 +3,8 @@
 
 from pyout import *
 
-s = style()
-pyout = pyout()
+s = Style()
+pyout = Pyout()
 
 # 基本输出
 pyout.log('pyout.log()')
