@@ -2,14 +2,13 @@
 # -*- coding: utf-8 -*-
 
 from os import name
-
+import sys
 '''
 格式：\x1b[显示方式;前景色;背景色m
 显示方式 0～7
 前景色 30～38
 背景色 40～48
 '''
-
 class ColorFore(object):
     black   = '30'
     red     = '31'
@@ -85,4 +84,6 @@ class Pyout(object):
         self.log(m, self.s.red, '❌  ')
     def success(self, m):
         self.log(m, self.s.green, '✅  ')
+
+sys.modules[__name__]=Pyout()
 
