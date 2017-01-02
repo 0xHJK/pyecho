@@ -1,4 +1,4 @@
-# pyout
+# pyecho
 
 用来修改python输出样式
 

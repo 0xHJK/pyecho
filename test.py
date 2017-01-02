@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import pyout
+from pyecho import echo
 
-pyout.bright('Bright')
-pyout.italic('Italic')
-pyout.underline('Underline')
+echo.bright('Bright')
+echo.italic('Italic')
+echo.underline('Underline')
 
-pyout.info('Info')
-pyout.debug('Debug')
-pyout.warn('Warn')
-pyout.error('Error')
-pyout.success('Success')
+echo.info('Info')
+echo.debug('Debug')
+echo.warn('Warn')
+echo.error('Error')
+echo.success('Success')
 
 # 样例输出
-# pyout.example()
+# echo.example()
